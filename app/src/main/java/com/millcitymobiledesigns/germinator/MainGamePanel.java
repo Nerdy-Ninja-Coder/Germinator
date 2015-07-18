@@ -20,7 +20,7 @@ import android.view.SurfaceView;
  */
 public class MainGamePanel extends SurfaceView implements SurfaceHolder.Callback {
 
-    private static int D_INITIAL_GERMS = 5;
+    private static int D_INITIAL_GERMS = 3;
     private SurfaceHolder mHolder;
     private GameLoopThread mGameLoopThread;
 
@@ -54,7 +54,7 @@ public class MainGamePanel extends SurfaceView implements SurfaceHolder.Callback
         mPaintText.setTextSize(32);
 
         mSoundPool = new SoundPool(10, AudioManager.STREAM_MUSIC, 0);
-        //mSoundID = mSoundPool.load(context, R.raw.waterballoon, 1);
+        mSoundID = mSoundPool.load(context, R.raw.squish, 1);
     }
 
     @Override
@@ -106,9 +106,11 @@ public class MainGamePanel extends SurfaceView implements SurfaceHolder.Callback
                     //Commit: adding play sound when Germ pops
                     mSoundPool.play(mSoundID, 1.0f, 1.0f, 0, 0, 1.0f);
 
+                    addGerm();
+
                 }else {
                     //Adding Germ if clicking outside
-//                    MainActivity main = (MainActivity)getContext();
+                    //MainActivity main = (MainActivity)getContext();
 //                    if (main.isConnected() == false) {
 //                        addGerm();
 //                    } else {
@@ -116,11 +118,9 @@ public class MainGamePanel extends SurfaceView implements SurfaceHolder.Callback
 //                    }
 
                     //Adding Star if clicking outside
-//                    Star star = new Star(mBitmap_Star, x, y);
-//                    mGroup.add(star);
+                    Star star = new Star(mBitmap_Star, x, y);
+                    mGroup.add(star);
                 }
-                //}
-
             }
 
             if (mGroup.size() == 0)

@@ -5,7 +5,9 @@ import android.graphics.Bitmap;
 import java.util.Random;
 
 /**
- * Created by averywold on 7/18/15.
+ * Created by Avery Wold on 7/18/15.
+ *
+ * This class creates the germs and moves them
  */
 public class Germ extends AnimatedBitmap {
 
@@ -42,10 +44,10 @@ public class Germ extends AnimatedBitmap {
         y = display_height;
 
         // Initializing scale
-        germ_scale = ((float)random.nextInt(6))/6f + 0.4f;
+        germ_scale = ((float)random.nextInt(6)) / 6f + 1f;
 
         // Initializing speed
-        speed_y = (int)(germ_scale * 10);
+        speed_y = (int)(germ_scale * 15);
 
         // Initializing rotation
         angle_step = ((double)random.nextInt(628)) / 100;

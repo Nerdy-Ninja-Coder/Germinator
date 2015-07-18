@@ -6,7 +6,9 @@ import android.graphics.Matrix;
 import android.graphics.Paint;
 
 /**
- * Created by averywold on 7/18/15.
+ * Created by Avery Wold on 7/18/15.
+ *
+ * This class animates bitmaps
  */
 public class AnimatedBitmap {
 
@@ -54,27 +56,27 @@ public class AnimatedBitmap {
     }
 
     public void setRotateCenter(float angle){
-        rotate_angle 	= angle;
-        rotate_x 		= img.getWidth()*scale_x/2;
-        rotate_y 		= img.getHeight()*scale_y/2;
+        rotate_angle = angle;
+        rotate_x = img.getWidth()*scale_x/2;
+        rotate_y = img.getHeight()*scale_y/2;
     }
 
     public void setRotate(float angle, float x, float y){
-        rotate_angle 	= angle;
-        rotate_x 		= x;
-        rotate_y 		= y;
+        rotate_angle = angle;
+        rotate_x = x;
+        rotate_y = y;
     }
     public void setAlpha(float a){
         alpha = a;
     }
 
     public void setScale(float x, float y){
-        scale_x 	= x;
-        scale_y 	= y;
+        scale_x = x;
+        scale_y = y;
     }
 
     public void update() {
-        paint.setAlpha((int)(alpha*255));
+        paint.setAlpha((int)(alpha * 255));
         matrix.setScale(scale_x, scale_y);
         matrix.postRotate(rotate_angle, rotate_x, rotate_y);
         matrix.postTranslate(translate_x, translate_y);

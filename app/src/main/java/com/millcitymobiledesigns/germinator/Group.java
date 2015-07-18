@@ -5,7 +5,8 @@ import android.graphics.Canvas;
 import java.util.ArrayList;
 
 /**
- * Created by averywold on 7/18/15.
+ * Created by Avery Wold on 7/18/15.
+ *
  */
 public class Group extends AnimatedBitmap {
 

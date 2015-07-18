@@ -3,11 +3,14 @@ package com.millcitymobiledesigns.germinator;
 import android.graphics.Canvas;
 
 /**
- * Created by averywold on 7/18/15.
+ * Created by Avery Wold on 7/18/15.
+ *
+ * This class contains the main thread for the game loop
  */
 public class GameLoopThread extends Thread {
 
     static final long FPS = 20;
+
     private MainGamePanel view;
     private boolean running = false;
 
@@ -26,17 +29,17 @@ public class GameLoopThread extends Thread {
         long sleepTime;
 
         while (running) {
-            Canvas c = null;
+            Canvas canvas = null;
             startTime = System.currentTimeMillis();
             try {
-                c = view.getHolder().lockCanvas();
+                canvas = view.getHolder().lockCanvas();
                 synchronized (view.getHolder()) {
                     if(running)
-                        view.myDraw(c);
+                        view.myDraw(canvas);
                 }
             } finally {
-                if (c != null) {
-                    view.getHolder().unlockCanvasAndPost(c);
+                if (canvas != null) {
+                    view.getHolder().unlockCanvasAndPost(canvas);
                 }
             }
             sleepTime = ticksPS-(System.currentTimeMillis() - startTime);
